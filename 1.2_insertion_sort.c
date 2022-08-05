@@ -4,26 +4,26 @@
 #include<stdlib.h>
 #include <time.h>
 
-//Generate a random character
+//Generate random a character
 char getRandom(char min, char max)
 {
     return min + (char)(rand()*(max-min+1.0)/(1.0+RAND_MAX));
 }
 
 //Insertion Sort
-void insertionSort(char a[], int n)
+void insertionSort(char arr[], int n)
 {
 	int i, pos, x;
 	for(i = 1; i < n; i++)
 	{
-		x = a[i];
+		x = arr[i];
 		pos = i;
-		while(pos > 0 && x < a[pos-1])
+		while(pos > 0 && x < arr[pos-1])
 		{
-			a[pos] = a[pos-1]; //translocate
+			arr[pos] = arr[pos-1]; //translocate
 			pos--;
 		}
-		a[pos] = x;
+		arr[pos] = x;
 	}
 	
 }
@@ -44,19 +44,21 @@ int main()
 	char charArr[n];
 	int i;
 	
-	//Create unsorted array of characters
+	//Create array characters
 	srand((char)time(NULL));
-	printf("Unsorted array:\n");
 	for(i = 0; i < n; i++)
 	{
 		charArr[i] = getRandom('a', 'z');
-		printf("%c ", charArr[i]);
 	}
+	
+	//Display unsorted array
+	printf("Unsorted array:\n");
+	showArray(charArr, n);
 	
 	//Sort array
 	insertionSort(charArr, n);
 	
-	//Display
+	//Display sorted array
 	printf("\nSorted array:\n");
 	showArray(charArr, n);
 	

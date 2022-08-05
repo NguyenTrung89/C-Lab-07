@@ -4,7 +4,7 @@
 #include<stdlib.h>
 #include <time.h>
 
-//Generate a random character
+//Generate random a character
 char getRandom(char min, char max)
 {
     return min + (char)(rand()*(max-min+1.0)/(1.0+RAND_MAX));
